@@ -1,8 +1,10 @@
 var Letter = require("./Letter.js");
 
 var ConstructWord = function (word) {
-    var wordArray = word.split("");
+    var wordArray = word.toUpperCase().split("");
     this.word = [];
+    this.guessedLetters = [];
+    this.guessesLeft = 7;
     for (var i = 0; i < wordArray.length; i++){
         var tempLetter = new Letter(wordArray[i]);
         if (wordArray[i] === " "){
@@ -19,9 +21,14 @@ var ConstructWord = function (word) {
     }
     this.guess = function (guessedLetter){
         var contained = false;
+        this.guessedLetters.push(guessedLetter);
         for (var i = 0; i < this.word.length; i++){
             if (this.word[i].guess(guessedLetter))
+                console.log("\nYou guessed correctly!")
                 contained = true;
+        }
+        if (!contained) {
+            console.log("\n" + guessedLetter + " is not part of the word.")
         }
         return contained;
     }
@@ -33,6 +40,9 @@ var ConstructWord = function (word) {
             }
         }
         return complete;
+    }
+    this.alreadyGuessed = function (guessedLetter){
+        return (this.guessedLetters.indexOf(guessedLetter) !== -1)
     }
 }
 
