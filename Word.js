@@ -15,7 +15,7 @@ var ConstructWord = function (word) {
         for (var i = 0; i < this.word.length; i++){
             tempWord.push(this.word[i].displayLetter());
         }
-        return tempWord.join();
+        return tempWord.join(" ");
     }
     this.guess = function (guessedLetter){
         var contained = false;
@@ -24,6 +24,14 @@ var ConstructWord = function (word) {
                 contained = true;
         }
         return contained;
+    }
+    this.completed = function () {
+        var complete = true;
+        for (var i = 0; i < this.word.length; i++){
+            if (!this.word[i].guessed)
+                completed = false;
+        }
+        return completed;
     }
 }
 
