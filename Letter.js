@@ -1,14 +1,16 @@
-exports.ConstructLetter = function (alpha) {
+var ConstructLetter = function (alpha) {
     this.guessed = false;
     this.letter = alpha.toUpperCase();
-    this.check = function (guess) {
-        var correct = (this.letter === guess.toUpperCase());
+    this.guess = function (guessedLetter) {
+        var correct = (this.letter === guessedLetter.toUpperCase());
         if (correct) {
             this.guessed = true;
         }
         return correct;
     }
-    this.display = function () {
+    this.displayLetter = function () {
         return (this.guessed ? this.letter : "_")
     }
 }
+
+module.exports = ConstructLetter;

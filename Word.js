@@ -1,23 +1,30 @@
-var letter = require("./Letter.js");
+var Letter = require("./Letter.js");
 
-exports.ConstructWord = function (word) {
+var ConstructWord = function (word) {
     var wordArray = word.split("");
     this.word = [];
     for (var i = 0; i < wordArray.length; i++){
-        var tempLetter = new letter.ConstructLetter(wordArray[i]);
+        var tempLetter = new Letter(wordArray[i]);
         if (wordArray[i] === " "){
             tempLetter.guessed = true;
         }
         this.word.push(tempLetter);
     }
-    this.display = function () {
+    this.displayWord = function () {
         var tempWord = [];
         for (var i = 0; i < this.word.length; i++){
-            tempWord.push(this.word[i].display());
+            tempWord.push(this.word[i].displayLetter());
         }
         return tempWord.join();
     }
     this.guess = function (guessedLetter){
-        
+        var contained = false;
+        for (var i = 0; i < this.word.length; i++){
+            if (this.word[i].guess(guessedLetter))
+                contained = true;
+        }
+        return contained;
     }
 }
+
+module.exports = ConstructWord;
