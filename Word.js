@@ -28,10 +28,11 @@ var ConstructWord = function (word) {
     this.completed = function () {
         var complete = true;
         for (var i = 0; i < this.word.length; i++){
-            if (!this.word[i].guessed)
-                completed = false;
+            if (!this.word[i].guessed){
+                complete = false;
+            }
         }
-        return completed;
+        return complete;
     }
 }
 

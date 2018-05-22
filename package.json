@@ -1,0 +1,23 @@
+{
+  "name": "Hang-Man",
+  "version": "1.0.0",
+  "description": "My word guess game re-imagined in Node. Now with 50% more Object Oriented Programming!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertshaw87/Hang-Man.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertshaw87/Hang-Man/issues"
+  },
+  "homepage": "https://github.com/robertshaw87/Hang-Man#readme",
+  "dependencies": {
+    "inquirer": "^5.2.0"
+  }
+}
