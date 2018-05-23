@@ -1,4 +1,4 @@
-var Word = require("./Word.js");
+var Game = require("./GameConstructor.js");
 var inquirer = require("inquirer");
 var guessesLeft;
 var wins = 0;
@@ -10,14 +10,14 @@ function resetGame() {
     selectWord();
 }
 function selectWord() {
-    targetWord = new Word("Hello World");
+    hangmanGame = new Game("Hello World");
     playHangman();
 }
 
 function displayStatus() {
     console.log("\n\n==============================================\n");
-    console.log("Guesses Left: " + targetWord.guessesLeft);
-    console.log(targetWord.displayWord());
+    console.log("Guesses Left: " + hangmanGame.guessesLeft);
+    console.log(hangmanGame.displayWord());
     console.log("\n==============================================\n")
 }
 
@@ -30,7 +30,7 @@ function playHangman() {
         validate: function(letter){
             var userLetter = letter.toUpperCase();
             var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
-            if (targetWord.alreadyGuessed(userLetter)){
+            if (hangmanGame.alreadyGuessed(userLetter)){
                 console.log("\n\n   You've already guessed " + userLetter + ". Please choose a new letter.")
                 return false;
             } else if (alphabet.indexOf(userLetter) === -1) {
@@ -40,14 +40,14 @@ function playHangman() {
                 return true;
         }
     }).then(function(answer){
-        if(!targetWord.guess(answer.userLetter.toUpperCase())){
-            targetWord.guessesLeft--;
+        if(!hangmanGame.guess(answer.userLetter.toUpperCase())){
+            hangmanGame.guessesLeft--;
         }
-        if (targetWord.completed()){
-            console.log(targetWord.displayWord());
+        if (hangmanGame.completed()){
+            console.log(hangmanGame.displayWord());
             console.log("Congratulations! You've succesfully guessed the word!")
             gameWin();
-        } else if (targetWord.guessesLeft <= 0){
+        } else if (hangmanGame.guessesLeft <= 0){
             console.log("You've run out of guesses!")
             gameLoss();
         } else {
