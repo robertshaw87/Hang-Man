@@ -21,11 +21,7 @@ function ConstructWord (word) {
         var contained = false;
         for (var i = 0; i < this.word.length; i++){
             if (this.word[i].guess(guessedLetter))
-                console.log("\nYou guessed correctly!")
                 contained = true;
-        }
-        if (!contained) {
-            console.log("\n" + guessedLetter + " is not part of the word.")
         }
         return contained;
     }
