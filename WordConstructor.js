@@ -11,10 +11,10 @@ function ConstructWord (word) {
         }
         this.word.push(tempLetter);
     }
-    this.displayWord = function () {
+    this.toString = function displayWord() {
         var tempWord = [];
         for (var i = 0; i < this.word.length; i++){
-            tempWord.push(this.word[i].displayLetter());
+            tempWord.push(this.word[i].toString());
         }
         return tempWord.join(" ");
     }

@@ -45,7 +45,7 @@ function ConstructGame(dictionary) {
             console.log("\n\n==============================================\n");
             console.log("               Congratulations!");
             console.log("       You correctly guessed the fruit:\n");
-            console.log("     " + this.targetWord.displayWord());
+            console.log("     " + this.targetWord.displayCompleteWord());
             console.log("\n==============================================\n");
         }
         return complete;
@@ -54,7 +54,7 @@ function ConstructGame(dictionary) {
         console.log("\n\n==============================================\n");
         console.log(" Guesses Left: " + this.guessesLeft);
         console.log(" Already guessed: " + this.guessedLetters.join(" ") + "\n");
-        console.log("         " + this.targetWord.displayWord());
+        console.log("         " + this.targetWord);
         console.log("\n==============================================\n");
     }
 }

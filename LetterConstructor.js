@@ -8,7 +8,7 @@ function ConstructLetter (alpha) {
         }
         return correct;
     }
-    this.displayLetter = function () {
+    this.toString = function displayLetter() {
         return (this.guessed ? this.letter : "_")
     }
 }
