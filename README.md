@@ -48,6 +48,16 @@ node index.js
 
 ## Challenges
 
+I focused on playing around with Constructors and reducing Global Variables in this project. Unlike my first word guess game, I divied up the reponsibilities for functionality between several objects and store the relevant data within them.
+
+![OOP](readme/OOP.png "OOP")
+![OOP2](readme/OOP2.png "OOP2")
+
+This lead to much more modular and compartimentalized code that's easy to understand in addition to not having messy global variables floating around.
+
+![Non-Alphabet Characters](readme/Handle-non-alphabet-Characters.PNG "Non-Alphabet Characters")
+
+I handled words in my dictionary having spaces, apostrophes, and other non-alphabet characters by having them default to showing. In the end, I ended up not using that functionality, but the potential is there for future iterations.
 
 ## Authors
 
