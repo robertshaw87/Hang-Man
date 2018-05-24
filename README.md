@@ -1,9 +1,9 @@
 # Mystery-Fruit
-My word guess game re-imagined in Node. Now with 50% more Object Oriented Programming and 100% more fruit!
+My word guess game re-imagined in Node. Now with 100% more fruit!
 
 ## Getting Started
 
-Download the repository. Then, navigate to the folder and run install from your node package manager. If everything is installed, when you run index.js, you should get a screen like this:
+Download the repository. Then, navigate to the folder and run install from your node package manager. If everything is installed, when you run `index.js`, you should get a screen like this:
 
 ![Mystery Fruit](readme/readme.gif "Mystery Fruit")
 
@@ -19,7 +19,7 @@ You must have node installed in your terminal with support for the Node Package 
 
 Navigate to the Node.js website and follow the instructions to install Node. Then navigate to the project folder in your terminal.
 ```
-/c/.../Liri-Bot/
+/.../Mystery-Fruit/
 ```
 
 Within that folder, run
@@ -32,17 +32,19 @@ Now, you're ready to play! Just run
 node index.js
 ```
 
+![Install](readme/install.gif "Install")
+
 ## Built With
 
 * [Javascript](https://www.javascript.com/) - The scripting language used
 
 * [Node.js](https://nodejs.org/en/) - JavaScript runtime
 
+* [Node File System](https://nodejs.org/api/fs.html) - Interact with the file system
+
 * [Node Package Manager](https://www.npmjs.com/) - Package manager for JavaScript and Node
 
 * [Inquirer](https://www.npmjs.com/package/inquirer) - Command line user interface
-
-* [Node File System](https://nodejs.org/api/fs.html) - Read the fruit library
 
 ## Challenges
 
