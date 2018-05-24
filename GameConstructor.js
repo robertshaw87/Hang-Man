@@ -1,11 +1,12 @@
 var Word = require("./WordConstructor.js");
 
-function ConstructGame() {
-    this.reset = function (callback) {
-        this.targetWord = new Word("hello World");
+function ConstructGame(dictionary) {
+    this.dictionary = dictionary;
+    this.reset = function () {
+        var randomWord = this.dictionary[Math.floor(Math.random() * this.dictionary.length)]
+        this.targetWord = new Word(randomWord);
         this.guessedLetters = [];
-        this.guessesLeft = 7;
-        callback();
+        this.guessesLeft = 5;
     }
     this.guess = function(guessLetter) {
         this.guessedLetters.push(guessLetter);

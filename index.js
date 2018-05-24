@@ -1,5 +1,6 @@
 var Game = require("./GameConstructor.js");
 var inquirer = require("inquirer");
+var fs = require("fs");
 var wins = 0;
 var losses = 0;
 var hangmanGame;
@@ -11,11 +12,21 @@ function newGame() {
     console.log(" Welcome to Hangman!");
     console.log(" Can you guess the word before running out of guesses?");
     console.log("\n==============================================\n\n");
-    resetGame();
+    fs.readFile("dictionary.txt", "utf8", function(error, data){
+        var dictionary = ["Hello World"];
+        if (error) {
+            console.log(error)
+        } else {
+            dictionary = data.split(/\r\n|\n/);
+        }
+        hangmanGame = new Game(dictionary);
+        resetGame();
+    })
+    
 }
 function resetGame() {
-    hangmanGame = new Game();
-    hangmanGame.reset(playHangman);
+    hangmanGame.reset();
+    playHangman();
 }
 
 function playHangman() {
