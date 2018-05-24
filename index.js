@@ -8,9 +8,9 @@ newGame();
 
 function newGame() {
     console.log("\n\n==============================================\n");
-    console.log("Welcome to hangman!");
-    console.log("Can you guess the word before running out of guesses?");
-    console.log("\n==============================================\n");        
+    console.log(" Welcome to Hangman!");
+    console.log(" Can you guess the word before running out of guesses?");
+    console.log("\n==============================================\n\n");
     resetGame();
 }
 function resetGame() {
@@ -51,9 +51,9 @@ function playHangman() {
 }
 
 function gameAgain() {
-    console.log("\n\n==============================================\n");
-    console.log("Your Score: ");
-    console.log(wins + " wins and " + losses + " losses");
+    console.log("\n==============================================\n");
+    console.log(" Your Score: ");
+    console.log(" " + wins + " wins and " + losses + " losses");
     console.log("\n==============================================\n");
     inquirer.prompt({
         type: "confirm",
@@ -66,8 +66,8 @@ function gameAgain() {
             resetGame();
         } else {
             console.log("\n\n==============================================\n");
-            console.log("Goodbye!");
-            console.log("Come back soon!");
+            console.log(" Goodbye!");
+            console.log(" Come back soon!");
             console.log("\n==============================================\n");     
         }
     })

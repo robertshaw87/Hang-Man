@@ -9,12 +9,16 @@ function ConstructGame() {
     }
     this.guess = function(guessLetter) {
         this.guessedLetters.push(guessLetter);
+        this.guessedLetters.sort(function (a, b){
+            var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
+            return (alphabet.indexOf(a) - alphabet.indexOf(b));
+        });
         var guessCorrect = this.targetWord.guess(guessLetter);
-        this.guessesLeft--;
         if (guessCorrect){
             console.log("\nYou guessed correctly!");
         } else {
-            console.log("\n" + guessedLetter + " is not part of the word.");
+            this.guessesLeft--;
+            console.log("\n" + guessLetter + " is not part of the word.");
         }
         return guessCorrect;
     }
@@ -25,9 +29,9 @@ function ConstructGame() {
         var haveGuessesLeft = (this.guessesLeft > 0);
         if (!haveGuessesLeft){
             console.log("\n\n==============================================\n");
-            console.log("Oh no! You ran out of guesses!");
-            console.log("The correct word was: ");
-            console.log(this.targetWord.displayWord());
+            console.log(" Oh no! You ran out of guesses!");
+            console.log(" The correct word was: ");
+            console.log(" " + this.targetWord.displayCompleteWord());
             console.log("\n==============================================\n");
         }
         return haveGuessesLeft;
@@ -36,17 +40,17 @@ function ConstructGame() {
         var complete = this.targetWord.completed();
         if (complete) {
             console.log("\n\n==============================================\n");
-            console.log("Congratulations! You correctly guessed the word:");
-            console.log(this.targetWord.displayWord());
+            console.log(" Congratulations! You correctly guessed the word:");
+            console.log(" " + this.targetWord.displayWord());
             console.log("\n==============================================\n");
         }
         return complete;
     }
     this.displayStatus = function () {
         console.log("\n\n==============================================\n");
-        console.log("Guesses Left: " + this.guessesLeft);
-        console.log("Already guessed: " + this.guessedLetters.join(" ") + "\n");
-        console.log(this.targetWord.displayWord());
+        console.log(" Guesses Left: " + this.guessesLeft);
+        console.log(" Already guessed: " + this.guessedLetters.join(" ") + "\n");
+        console.log(" " + this.targetWord.displayWord());
         console.log("\n==============================================\n");
     }
 }

@@ -34,6 +34,13 @@ function ConstructWord (word) {
         }
         return complete;
     }
+    this.displayCompleteWord = function () {
+        var tempWord = [];
+        for (var i = 0; i < this.word.length; i++){
+            tempWord.push(this.word[i].letter);
+        }
+        return tempWord.join(" ");
+    }
 }
 
 module.exports = ConstructWord;
