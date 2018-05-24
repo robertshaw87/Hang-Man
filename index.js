@@ -1,8 +1,6 @@
 var Game = require("./GameConstructor.js");
 var inquirer = require("inquirer");
 var fs = require("fs");
-var wins = 0;
-var losses = 0;
 var hangmanGame;
 
 newGame();
@@ -50,10 +48,10 @@ function playHangman() {
     }).then(function(answer){
         hangmanGame.guess(answer.userLetter.toUpperCase())
         if (hangmanGame.completed()){
-            wins++;
+            hangmanGame.wins++;
             gameAgain();
         } else if (!hangmanGame.anyGuessesLeft()){
-            losses++;
+            hangmanGame.losses++;
             gameAgain();
         } else {
             playHangman();
@@ -64,7 +62,7 @@ function playHangman() {
 function gameAgain() {
     console.log("\n==============================================\n");
     console.log(" Your Score: ");
-    console.log(" " + wins + " wins and " + losses + " losses");
+    console.log(" " + hangmanGame.wins + " wins and " + hangmanGame.losses + " losses");
     console.log("\n==============================================\n");
     inquirer.prompt({
         type: "confirm",

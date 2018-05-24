@@ -2,6 +2,8 @@ var Word = require("./WordConstructor.js");
 
 function ConstructGame(dictionary) {
     this.dictionary = dictionary;
+    this.wins = 0;
+    this.losses = 0;
     this.reset = function () {
         var randomWord = this.dictionary[Math.floor(Math.random() * this.dictionary.length)]
         this.targetWord = new Word(randomWord);
