@@ -7,8 +7,11 @@ newGame();
 
 function newGame() {
     console.log("\n\n==============================================\n");
-    console.log(" Welcome to Hangman!");
-    console.log(" Can you guess the word before running out of guesses?");
+    console.log("  \\                                    ");
+    console.log(" ()()      Welcome to Mystery Fruit!    ,");
+    console.log("()()()     Can you reveal the fruit     \\`.__.");
+    console.log(" ()()   before running out of guesses?   `._,'");
+    console.log("  ()                                   ");
     console.log("\n==============================================\n\n");
     fs.readFile("dictionary.txt", "utf8", function(error, data){
         var dictionary = ["Hello World"];
@@ -18,13 +21,9 @@ function newGame() {
             dictionary = data.split(/\r\n|\n/);
         }
         hangmanGame = new Game(dictionary);
-        resetGame();
-    })
-    
-}
-function resetGame() {
-    hangmanGame.reset();
-    playHangman();
+        hangmanGame.reset();
+        playHangman();
+    })   
 }
 
 function playHangman() {
@@ -46,7 +45,7 @@ function playHangman() {
                 return true;
         }
     }).then(function(answer){
-        hangmanGame.guess(answer.userLetter.toUpperCase())
+        hangmanGame.guess(answer.userLetter.toUpperCase());
         if (hangmanGame.completed()){
             hangmanGame.wins++;
             gameAgain();
@@ -56,13 +55,13 @@ function playHangman() {
         } else {
             playHangman();
         }
-    })
+    });
 }
 
 function gameAgain() {
     console.log("\n==============================================\n");
-    console.log(" Your Score: ");
-    console.log(" " + hangmanGame.wins + " wins and " + hangmanGame.losses + " losses");
+    console.log("                Your Score: ");
+    console.log("            " + hangmanGame.wins + " wins and " + hangmanGame.losses + " losses");
     console.log("\n==============================================\n");
     inquirer.prompt({
         type: "confirm",
@@ -72,11 +71,12 @@ function gameAgain() {
     }).then(function(answer){
         if (answer.playAgain){
             console.log("Welcome back! Best of luck this round!");
-            resetGame();
+            hangmanGame.reset();
+            playHangman();
         } else {
             console.log("\n\n==============================================\n");
-            console.log(" Goodbye!");
-            console.log(" Come back soon!");
+            console.log("                  Goodbye!");
+            console.log("               Come back soon!");
             console.log("\n==============================================\n");     
         }
     })

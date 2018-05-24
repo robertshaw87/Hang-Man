@@ -2,10 +2,11 @@ var Letter = require("./LetterConstructor.js");
 
 function ConstructWord (word) {
     var wordArray = word.toUpperCase().split("");
+    var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
     this.word = [];
     for (var i = 0; i < wordArray.length; i++){
         var tempLetter = new Letter(wordArray[i]);
-        if (wordArray[i] === " "){
+        if (alphabet.indexOf(wordArray[i]) === -1){
             tempLetter.guessed = true;
         }
         this.word.push(tempLetter);
