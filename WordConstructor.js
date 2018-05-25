@@ -4,6 +4,7 @@ function ConstructWord (word) {
     var wordArray = word.toUpperCase().split("");
     var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
     this.word = [];
+    // defaults non-alphabet characters to already guessed
     for (var i = 0; i < wordArray.length; i++){
         var tempLetter = new Letter(wordArray[i]);
         if (alphabet.indexOf(wordArray[i]) === -1){
@@ -35,6 +36,7 @@ function ConstructWord (word) {
         }
         return complete;
     }
+    // shows the completed word regardless of current progress
     this.displayCompleteWord = function () {
         var tempWord = [];
         for (var i = 0; i < this.word.length; i++){

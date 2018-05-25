@@ -10,12 +10,14 @@ function ConstructGame(dictionary) {
         this.guessedLetters = [];
         this.guessesLeft = 5;
     }
+    // add the guess to the array of already guessed letters
+    // pass the guess to the word object
     this.guess = function(guessLetter) {
-        this.guessedLetters.push(guessLetter);
         this.guessedLetters.sort(function (a, b){
             var alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split("");
             return (alphabet.indexOf(a) - alphabet.indexOf(b));
         });
+        this.guessedLetters.push(guessLetter);
         var guessCorrect = this.targetWord.guess(guessLetter);
         if (guessCorrect){
             console.log("\nYou guessed correctly!");
@@ -50,7 +52,7 @@ function ConstructGame(dictionary) {
         }
         return complete;
     }
-    this.displayStatus = function () {
+    this.toString = function () {
         console.log("\n\n==============================================\n");
         console.log(" Guesses Left: " + this.guessesLeft);
         console.log(" Already guessed: " + this.guessedLetters.join(" ") + "\n");
