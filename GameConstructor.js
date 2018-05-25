@@ -52,7 +52,7 @@ function ConstructGame(dictionary) {
         }
         return complete;
     }
-    this.toString = function () {
+    this.displayStatus = function () {
         console.log("\n\n==============================================\n");
         console.log(" Guesses Left: " + this.guessesLeft);
         console.log(" Already guessed: " + this.guessedLetters.join(" ") + "\n");
